@@ -1,0 +1,38 @@
+---
+const domains = [
+  { icon: 'hub', title: 'Core Framework', desc: 'The foundational neural architecture linking all subsystems.', color: 'primary' },
+  { icon: 'psychology', title: 'AI Engine', desc: 'Advanced LLMs and predictive models for automated decisioning.', color: 'secondary' },
+  { icon: 'security', title: 'Cybersecurity', desc: 'Zero-trust architecture with real-time threat neutralization.', color: 'primary' },
+  { icon: 'terminal', title: 'Developer Platform', desc: 'Extensible APIs, CLIs, and unified development environments.', color: 'secondary' },
+  { icon: 'precision_manufacturing', title: 'Automation', desc: 'Orchestrated workflows reducing manual intervention.', color: 'primary' },
+  { icon: 'lan', title: 'Distributed Systems', desc: 'Fault-tolerant processing across global node networks.', color: 'primary' },
+  { icon: 'monitoring', title: 'Observability', desc: 'Granular telemetry, distributed tracing, and log aggregation.', color: 'primary' },
+  { icon: 'science', title: 'Research Lab', desc: 'Experimental features and next-gen algorithm incubation.', color: 'primary' },
+  { icon: 'lightbulb', title: 'System Intelligence', desc: 'Self-optimizing routines based on historical performance data.', color: 'primary' },
+  { icon: 'smart_toy', title: 'Autonomous Ops', desc: 'Self-healing infrastructure requiring zero human oversight.', color: 'primary' },
+  { icon: 'copy_all', title: 'Digital Twin', desc: 'Virtual simulation environments for risk-free deployment testing.', color: 'primary' },
+  { icon: 'api', title: 'API & Integrations', desc: 'Seamless connectivity with enterprise legacy systems.', color: 'primary' },
+  { icon: 'cloud', title: 'Cloud Infrastructure', desc: 'Scalable, multi-cloud compute resources managed seamlessly.', color: 'primary' },
+  { icon: 'database', title: 'Data & Knowledge', desc: 'Centralized vector databases and semantic search capabilities.', color: 'primary' },
+  { icon: 'data_exploration', title: 'Data Science & ML', desc: 'Tools for model training, validation, and continuous deployment.', color: 'primary' },
+  { icon: 'domain', title: 'Enterprise Services', desc: 'Dedicated support, SLAs, and compliant cloud environments.', color: 'primary' },
+];
+---
+<section class="py-24 px-margin max-w-7xl mx-auto">
+    <div class="mb-16 text-center">
+        <h2 class="font-h2 text-h2 text-on-surface mb-4">Intelligent Ecosystem</h2>
+        <p class="font-body-md text-body-md text-white max-w-2xl mx-auto">Sixteen core domains synchronized to deliver autonomous operational capabilities.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {domains.map((domain) => (
+            <div class="glass-panel rounded-xl p-6 relative group overflow-hidden transition-all duration-300">
+                <div class={`absolute top-0 right-0 w-24 h-24 bg-${domain.color}/5 rounded-bl-full -mr-4 -mt-4 transition-all duration-500 group-hover:bg-${domain.color}/10`}></div>
+                <div class="mb-4">
+                    <span class={`material-symbols-outlined text-${domain.color} text-3xl group-hover:drop-shadow-[0_0_8px_rgba(68,246,136,0.8)] transition-all`}>{domain.icon}</span>
+                </div>
+                <h3 class="font-h3 text-h3 text-on-surface mb-2">{domain.title}</h3>
+                <p class="font-body-md text-sm text-white">{domain.desc}</p>
+            </div>
+        ))}
+    </div>
+</section>

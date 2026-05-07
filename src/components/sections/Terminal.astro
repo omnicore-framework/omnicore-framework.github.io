@@ -1,0 +1,70 @@
+---
+---
+<section class="py-24 px-margin max-w-5xl mx-auto">
+    <div class="mb-12 text-center">
+        <span class="text-primary font-mono text-xs tracking-widest uppercase">[[TERM]] Command Center</span>
+        <h2 class="font-h2 text-h2 text-on-surface mt-2">Initialize Mission</h2>
+    </div>
+    
+    <div class="glass-panel rounded-xl overflow-hidden border border-primary/20 shadow-[0_0_30px_rgba(5,217,111,0.05)]">
+        <!-- Terminal Header -->
+        <div class="bg-surface-container-highest px-4 py-2 flex items-center justify-between border-b border-white/5">
+            <div class="flex space-x-2">
+                <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+            </div>
+            <div class="text-[10px] font-mono text-white uppercase tracking-tighter">omnicore-cli --version 2.4.0-stable</div>
+            <div class="w-12"></div>
+        </div>
+        
+        <!-- Terminal Content -->
+        <div class="p-6 font-mono text-sm sm:text-base leading-relaxed text-primary/90 bg-black/40">
+            <div class="flex items-start space-x-2 mb-2">
+                <span class="text-secondary">$</span>
+                <span class="typing-text">npm install @omnicore/framework</span>
+            </div>
+            <div class="text-white mb-4 ml-4 opacity-70">
+                [WAIT] Resolving dependencies...<br/>
+                [OK] Neural engine linked (v4.2.0)<br/>
+                [OK] Security protocols engaged
+            </div>
+            
+            <div class="flex items-start space-x-2 mb-2">
+                <span class="text-secondary">$</span>
+                <span class="text-on-surface">omnicore init --mission-critical</span>
+            </div>
+            <div class="ml-4 mb-4">
+                <div class="flex items-center space-x-2">
+                    <span class="text-primary">●</span>
+                    <span class="text-white">Core initialized...</span>
+                    <span class="text-primary">100%</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="text-primary">●</span>
+                    <span class="text-white">Telemetry active...</span>
+                    <span class="text-primary">READY</span>
+                </div>
+            </div>
+            
+            <div class="flex items-start space-x-2 cursor-blink">
+                <span class="text-secondary">$</span>
+                <span class="w-2 h-5 bg-primary animate-pulse"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .typing-text {
+        overflow: hidden;
+        border-right: .15em solid transparent;
+        white-space: nowrap;
+        animation: typing 3.5s steps(30, end);
+    }
+
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+    }
+</style>

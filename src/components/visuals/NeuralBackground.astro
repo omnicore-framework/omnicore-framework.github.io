@@ -1,0 +1,68 @@
+---
+---
+<div class="neural-container absolute inset-0 overflow-hidden pointer-events-none opacity-40">
+    <svg class="neural-svg w-full h-full" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+        <!-- Connecting lines -->
+        <g class="lines-group" stroke="rgba(68, 246, 136, 0.2)" stroke-width="0.5">
+            <line x1="100" y1="100" x2="300" y2="400" class="line-anim" style="animation-delay: 0s;"></line>
+            <line x1="300" y1="400" x2="600" y2="200" class="line-anim" style="animation-delay: 1s;"></line>
+            <line x1="600" y1="200" x2="800" y2="500" class="line-anim" style="animation-delay: 2s;"></line>
+            <line x1="800" y1="500" x2="400" y2="700" class="line-anim" style="animation-delay: 3s;"></line>
+            <line x1="400" y1="700" x2="100" y2="100" class="line-anim" style="animation-delay: 4s;"></line>
+            
+            <line x1="200" y1="800" x2="500" y2="600" class="line-anim" style="animation-delay: 0.5s;"></line>
+            <line x1="500" y1="600" x2="900" y2="100" class="line-anim" style="animation-delay: 1.5s;"></line>
+            <line x1="900" y1="100" x2="700" y2="900" class="line-anim" style="animation-delay: 2.5s;"></line>
+            <line x1="700" y1="900" x2="200" y2="800" class="line-anim" style="animation-delay: 3.5s;"></line>
+        </g>
+
+        <!-- Nodes -->
+        <g class="nodes-group" fill="rgba(68, 246, 136, 0.6)">
+            <circle cx="100" cy="100" r="2" class="node-pulse" style="animation-delay: 0s;"></circle>
+            <circle cx="300" cy="400" r="2" class="node-pulse" style="animation-delay: 1s;"></circle>
+            <circle cx="600" cy="200" r="2" class="node-pulse" style="animation-delay: 2s;"></circle>
+            <circle cx="800" cy="500" r="2" class="node-pulse" style="animation-delay: 3s;"></circle>
+            <circle cx="400" cy="700" r="2" class="node-pulse" style="animation-delay: 4s;"></circle>
+            <circle cx="200" cy="800" r="2" class="node-pulse" style="animation-delay: 0.5s;"></circle>
+            <circle cx="500" cy="600" r="2" class="node-pulse" style="animation-delay: 1.5s;"></circle>
+            <circle cx="900" cy="100" r="2" class="node-pulse" style="animation-delay: 2.5s;"></circle>
+            <circle cx="700" cy="900" r="2" class="node-pulse" style="animation-delay: 3.5s;"></circle>
+        </g>
+    </svg>
+</div>
+
+<style>
+    .neural-container {
+        mask-image: radial-gradient(circle at center, black 30%, transparent 70%);
+    }
+
+    .neural-svg {
+        animation: rotate 120s linear infinite;
+        transform-origin: center;
+    }
+
+    .line-anim {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: draw 10s ease-in-out infinite;
+    }
+
+    .node-pulse {
+        animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes rotate {
+        from { transform: scale(1.5) rotate(0deg); }
+        to { transform: scale(1.5) rotate(360deg); }
+    }
+
+    @keyframes draw {
+        0%, 100% { stroke-dashoffset: 1000; opacity: 0; }
+        50% { stroke-dashoffset: 0; opacity: 1; }
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 0.3; }
+        50% { transform: scale(3); opacity: 1; filter: blur(1px); }
+    }
+</style>
