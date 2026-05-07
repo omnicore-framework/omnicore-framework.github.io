@@ -1,0 +1,33 @@
+{
+  "name": "omnicore-framework",
+  "version": "1.0.0",
+  "description": "Premium infrastructure website for the OmniCore Framework",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.4",
+    "@types/three": "^0.184.1",
+    "astro": "^6.3.0",
+    "tailwindcss": "^4.2.4",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "eslint-plugin-astro": "^1.2.0",
+    "jsdom": "^24.0.0",
+    "prettier": "^3.2.0",
+    "prettier-plugin-astro": "^0.13.0",
+    "prettier-plugin-tailwindcss": "^0.6.0",
+    "vitest": "^1.4.0"
+  }
+}
