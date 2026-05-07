@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@theme {
+  --color-on-primary-container: #005829;
+  --color-secondary: #3fe583;
+  --color-tertiary-container: #ffa977;
+  --color-on-tertiary: #532200;
+  --color-surface-bright: #1a1a1a;
+  --color-surface-tint: #25e378;
+  --color-primary-container: #05d96f;
+  --color-on-error: #690005;
+  --color-error: #ffb4ab;
+  --color-on-secondary-container: #004c25;
+  --color-primary-fixed: #62ff96;
+  --color-on-primary-fixed: #00210b;
+  --color-surface-container-high: #121212;
+  --color-outline-variant: #2a2a2a;
+  --color-secondary-fixed: #5fff9a;
+  --color-primary-fixed-dim: #25e378;
+  --color-surface-container-low: #0a0a0a;
+  --color-background: #000000;
+  --color-on-tertiary-fixed-variant: #71360d;
+  --color-on-secondary-fixed: #00210c;
+  --color-on-secondary: #00391a;
+  --color-surface-dim: #000000;
+  --color-surface-variant: #121212;
+  --color-secondary-fixed-dim: #3ae280;
+  --color-surface: #000000;
+  --color-inverse-on-surface: #2a332a;
+  --color-on-surface-variant: #bacbba;
+  --color-primary: #44f688;
+  --color-tertiary-fixed-dim: #ffb68d;
+  --color-on-error-container: #ffdad6;
+  --color-on-tertiary-container: #783c13;
+  --color-error-container: #93000a;
+  --color-on-secondary-fixed-variant: #005228;
+  --color-tertiary-fixed: #ffdbc9;
+  --color-surface-container: #080808;
+  --color-surface-container-highest: #1a1a1a;
+  --color-secondary-container: #00c86a;
+  --color-on-primary: #003918;
+  --color-inverse-primary: #006d34;
+  --color-outline: #859585;
+  --color-on-tertiary-fixed: #331200;
+  --color-inverse-surface: #dbe5d9;
+  --color-on-surface: #dbe5d9;
+  --color-on-background: #dbe5d9;
+  --color-surface-container-lowest: #081009;
+  --color-tertiary: #ffcfb6;
+  --color-on-primary-fixed-variant: #005226;
+
+  --font-mono-label: "Space Grotesk", monospace;
+  --font-h1: "Space Grotesk", sans-serif;
+  --font-h2: "Space Grotesk", sans-serif;
+  --font-h3: "Space Grotesk", sans-serif;
+  --font-body-lg: "Inter", sans-serif;
+  --font-body-md: "Inter", sans-serif;
+
+  --spacing-xl: 4rem;
+  --spacing-md: 1.5rem;
+  --spacing-margin: 2rem;
+  --spacing-xs: 0.5rem;
+  --spacing-lg: 2.5rem;
+  --spacing-gutter: 1.5rem;
+  --spacing-sm: 1rem;
+  --spacing-unit: 4px;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-background min-h-screen font-body-md relative;
+  }
+}
+
+@layer utilities {
+  .cyber-grid {
+    background-image: 
+        linear-gradient(to right, rgba(68, 246, 136, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(68, 246, 136, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .scanline {
+    width: 100%;
+    height: 100px;
+    z-index: 5;
+    background: linear-gradient(
+      0deg,
+      transparent 0%,
+      rgba(5, 217, 111, 0.03) 50%,
+      rgba(5, 217, 111, 0.08) 50%,
+      rgba(5, 217, 111, 0.03) 51%,
+      transparent 100%
+    );
+    opacity: 0.1;
+    position: fixed;
+    top: -100px;
+    left: 0;
+    pointer-events: none;
+    animation: scanline 10s linear infinite;
+  }
+
+  @keyframes grid-move {
+    from { background-position: 0 0; }
+    to { background-position: 0 40px; }
+  }
+
+  @keyframes scanline {
+    0% { top: -100px; }
+    100% { top: 100vh; }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+  }
+
+  .glow-pulse {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+  .glow-button {
+    box-shadow: 0 0 15px rgba(68, 246, 136, 0.4);
+    transition: all 0.3s ease;
+  }
+  .glow-button:hover {
+    box-shadow: 0 0 25px rgba(68, 246, 136, 0.6);
+    transform: translateY(-1px);
+  }
+  .glass-panel {
+    backdrop-filter: blur(16px);
+    background-color: rgba(0, 0, 0, 0.6);
+    border-top: 1px solid rgba(68, 246, 136, 0.1);
+    border-left: 1px solid rgba(68, 246, 136, 0.1);
+  }
+  .glass-panel:hover {
+    border-top: 1px solid rgba(68, 246, 136, 0.3);
+    border-left: 1px solid rgba(68, 246, 136, 0.3);
+    box-shadow: 0 0 20px rgba(5, 217, 111, 0.05);
+  }
+}
