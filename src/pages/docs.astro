@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+
+const modules = [
+    { id: '01', name: 'Core Framework', desc: 'El núcleo operativo del ecosistema.' },
+    { id: '02', name: 'AI Engine', desc: 'La inteligencia cognitiva del ecosistema.' },
+    { id: '03', name: 'Cybersecurity', desc: 'La defensa inteligente y preventiva.' },
+    { id: '04', name: 'Developer Platform', desc: 'Infraestructura avanzada para developers.' },
+    { id: '05', name: 'Automation', desc: 'La automatización operativa y flujos de trabajo.' },
+    { id: '06', name: 'Distributed Systems', desc: 'Arquitectura para escala global.' },
+    { id: '07', name: 'Observability', desc: 'La visión y monitoreo del ecosistema.' },
+    { id: '08', name: 'Research Lab', desc: 'Innovación y experimentación.' },
+    { id: '09', name: 'System Intelligence', desc: 'La conciencia del ecosistema.' },
+    { id: '10', name: 'Autonomous Operations', desc: 'Operaciones autónomas inteligentes.' },
+    { id: '11', name: 'Digital Twin', desc: 'La simulación viva del ecosistema.' },
+    { id: '12', name: 'API & Integration', desc: 'La conectividad universal.' },
+    { id: '13', name: 'Cloud Infrastructure', desc: 'Infraestructura moderna nativa en la nube.' },
+    { id: '14', name: 'Data & Knowledge', desc: 'La memoria a largo plazo.' },
+    { id: '15', name: 'Data Science', desc: 'Inteligencia analítica.' },
+];
+---
+
+<Layout title="Documentation | OmniCore Framework">
+    <Header />
+    
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-12 py-12 relative min-h-screen">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="w-full md:w-64 flex-shrink-0 md:sticky md:top-32 h-fit overflow-y-auto hidden md:block">
+            <nav class="space-y-8 text-sm">
+                <div>
+                    <h3 class="font-mono text-emerald-400 font-bold mb-4 tracking-widest uppercase text-xs">Introducción</h3>
+                    <ul class="space-y-3 text-white/60">
+                        <li><a href="#vision" class="hover:text-white transition-colors">Visión General</a></li>
+                        <li><a href="#filosofia" class="hover:text-white transition-colors">Filosofía del Ecosistema</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-mono text-emerald-400 font-bold mb-4 tracking-widest uppercase text-xs">Arquitectura</h3>
+                    <ul class="space-y-3 text-white/60">
+                        <li><a href="#modulos" class="hover:text-white transition-colors">Los 15 Módulos Core</a></li>
+                        <li><a href="#integracion" class="hover:text-white transition-colors">Patrones de Integración</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 max-w-3xl prose prose-invert prose-emerald">
+            
+            <div class="mb-12 border-b border-white/10 pb-12" id="vision">
+                <h1 class="font-h1 text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">OmniCore Framework</h1>
+                <p class="text-xl text-emerald-400 font-mono mb-8">Ecosistema Inteligente de Infraestructura Nativo para IA</p>
+                
+                <p class="text-white/80 leading-relaxed mb-6">
+                    OmniCore Framework no es simplemente un framework tradicional. Es un ecosistema modular, inteligente y autónomo diseñado para la automatización avanzada, infraestructura moderna, inteligencia artificial y ciberseguridad.
+                </p>
+                <p class="text-white/80 leading-relaxed">
+                    La idea principal es crear una arquitectura donde todas las áreas puedan funcionar individualmente, pero también cooperar como un sistema unificado e inteligente.
+                </p>
+            </div>
+
+            <div class="mb-12 border-b border-white/10 pb-12" id="filosofia">
+                <h2 class="font-h2 text-3xl font-bold text-white mb-6">Filosofía del Ecosistema</h2>
+                <blockquote class="border-l-4 border-emerald-500 pl-6 my-8 text-lg text-white/90 italic bg-emerald-500/5 py-4 rounded-r-lg">
+                    "Una capa operativa inteligente para sistemas modernos."
+                </blockquote>
+                <p class="text-white/80 leading-relaxed mb-6">El ecosistema está diseñado bajo los siguientes principios fundamentales:</p>
+                <ul class="grid grid-cols-2 gap-4 font-mono text-sm text-emerald-400/80 mb-8">
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> modular-first</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> AI-native</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> security-first</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> cloud-native</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> event-driven</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> autonomous-ready</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> developer-centric</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> scalable-by-design</li>
+                </ul>
+            </div>
+
+            <div class="mb-12" id="modulos">
+                <h2 class="font-h2 text-3xl font-bold text-white mb-8">Arquitectura Modular (15 Core Areas)</h2>
+                
+                <div class="space-y-4">
+                    {modules.map((m) => (
+                        <div class="glass-panel p-6 rounded-xl border border-white/10 flex items-start gap-6 hover:border-emerald-500/30 transition-colors">
+                            <div class="font-mono text-2xl text-emerald-500/30 font-bold mt-1">{m.id}</div>
+                            <div>
+                                <h3 class="text-white font-bold text-lg mb-1">{m.name}</h3>
+                                <p class="text-white/60 text-sm">{m.desc}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+        </main>
+        
+        <!-- Right TOC (Optional, can be added later) -->
+        <div class="hidden lg:block w-48 flex-shrink-0"></div>
+
+    </div>
+    
+    <Footer />
+</Layout>

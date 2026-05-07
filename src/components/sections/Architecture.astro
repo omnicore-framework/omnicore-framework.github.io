@@ -1,0 +1,80 @@
+---
+const principles = [
+  {
+    id: '01',
+    title: 'Dominio Independiente',
+    desc: 'Cada organización dentro de OmniCore opera con autonomía total. Poseen sus propios proyectos, repositorios, reglas y ciclo de vida, evitando el acoplamiento monolítico y permitiendo escalar equipos sin fricción.',
+    icon: 'domain',
+    color: 'emerald-400'
+  },
+  {
+    id: '02',
+    title: 'Estándar Unificado',
+    desc: 'Aunque independientes, todas las áreas operan bajo un mismo estándar. La arquitectura, la documentación y los protocolos de colaboración son idénticos, garantizando que cualquier desarrollador entienda el sistema global.',
+    icon: 'rule_settings',
+    color: 'emerald-400'
+  },
+  {
+    id: '03',
+    title: 'Capa de Integración Central',
+    desc: 'El OmniCore Core actúa como el enrutador universal. Los resultados, modelos y datos de una organización fluyen hacia las demás a través de interfaces estandarizadas, creando una red neuronal tecnológica.',
+    icon: 'all_inclusive',
+    color: 'emerald-400'
+  }
+];
+---
+
+<section class="py-24 relative overflow-hidden" id="architecture">
+    <div class="px-margin max-w-7xl mx-auto relative z-10 w-full">
+        
+        <div class="mb-16 text-center max-w-3xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-6">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">Philosophy & Blueprint</span>
+            </div>
+            <h2 class="font-h2 text-h2 text-on-surface mb-6 leading-tight">
+                La Estructura <span class="text-emerald-400">Fundamental</span>
+            </h2>
+            <p class="font-body-md text-white/70 leading-relaxed">
+                OmniCore evita que el conocimiento y la investigación colapsen en un solo sistema. Lo logramos separando la complejidad en organizaciones especializadas pero interconectadas a través de principios inviolables.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {principles.map((p) => (
+                <div class="glass-panel rounded-2xl p-8 border border-white/5 hover:border-emerald-500/30 transition-all duration-500 relative group overflow-hidden">
+                    <!-- Hover Glow -->
+                    <div class="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-8">
+                            <div class="w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-emerald-400 text-2xl">{p.icon}</span>
+                            </div>
+                            <span class="font-mono text-4xl font-bold text-white/5 group-hover:text-emerald-500/20 transition-colors duration-500">{p.id}</span>
+                        </div>
+                        
+                        <h3 class="font-h3 text-xl text-on-surface mb-4">{p.title}</h3>
+                        <p class="font-body-md text-white/60 text-sm leading-relaxed">
+                            {p.desc}
+                        </p>
+                    </div>
+                </div>
+            ))}
+        </div>
+        
+        <!-- Terminal / CLI snippet below the cards to match Orionis "engineering" feel -->
+        <div class="mt-16 glass-panel rounded-2xl p-8 border border-white/10 w-full max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+            <div>
+                <h4 class="text-on-surface font-semibold mb-2">Inicializa la misión</h4>
+                <p class="text-white/50 text-sm">Despliega el núcleo o crea nuevas organizaciones instantáneamente.</p>
+            </div>
+            <div class="bg-black/80 border border-white/10 rounded-lg px-6 py-4 flex items-center gap-4 font-mono text-sm w-full md:w-auto">
+                <span class="text-emerald-500/50">$</span>
+                <span class="text-emerald-400">omnicore</span>
+                <span class="text-white/80">init --blueprint standard</span>
+            </div>
+        </div>
+
+    </div>
+</section>

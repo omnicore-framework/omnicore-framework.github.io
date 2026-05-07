@@ -1,37 +1,56 @@
 ---
-const domains = [
-  { icon: 'hub', title: 'Core Framework', desc: 'The foundational neural architecture linking all subsystems.', color: 'primary' },
-  { icon: 'psychology', title: 'AI Engine', desc: 'Advanced LLMs and predictive models for automated decisioning.', color: 'secondary' },
-  { icon: 'security', title: 'Cybersecurity', desc: 'Zero-trust architecture with real-time threat neutralization.', color: 'primary' },
-  { icon: 'terminal', title: 'Developer Platform', desc: 'Extensible APIs, CLIs, and unified development environments.', color: 'secondary' },
-  { icon: 'precision_manufacturing', title: 'Automation', desc: 'Orchestrated workflows reducing manual intervention.', color: 'primary' },
-  { icon: 'lan', title: 'Distributed Systems', desc: 'Fault-tolerant processing across global node networks.', color: 'primary' },
-  { icon: 'monitoring', title: 'Observability', desc: 'Granular telemetry, distributed tracing, and log aggregation.', color: 'primary' },
-  { icon: 'science', title: 'Research Lab', desc: 'Experimental features and next-gen algorithm incubation.', color: 'primary' },
-  { icon: 'lightbulb', title: 'System Intelligence', desc: 'Self-optimizing routines based on historical performance data.', color: 'primary' },
-  { icon: 'smart_toy', title: 'Autonomous Ops', desc: 'Self-healing infrastructure requiring zero human oversight.', color: 'primary' },
-  { icon: 'copy_all', title: 'Digital Twin', desc: 'Virtual simulation environments for risk-free deployment testing.', color: 'primary' },
-  { icon: 'api', title: 'API & Integrations', desc: 'Seamless connectivity with enterprise legacy systems.', color: 'primary' },
-  { icon: 'cloud', title: 'Cloud Infrastructure', desc: 'Scalable, multi-cloud compute resources managed seamlessly.', color: 'primary' },
-  { icon: 'database', title: 'Data & Knowledge', desc: 'Centralized vector databases and semantic search capabilities.', color: 'primary' },
-  { icon: 'data_exploration', title: 'Data Science & ML', desc: 'Tools for model training, validation, and continuous deployment.', color: 'primary' },
-  { icon: 'domain', title: 'Enterprise Services', desc: 'Dedicated support, SLAs, and compliant cloud environments.', color: 'primary' },
+const organizations = [
+  { id: 'core', title: 'Core Framework', desc: 'Infraestructura central que conecta todo el ecosistema y gestiona el ciclo de vida de los servicios.', icon: 'hub', color: 'primary', nodes: ['Runtime Engine', 'Event System', 'Plugin System', 'Internal APIs'] },
+  { id: 'ai-engine', title: 'AI Engine', desc: 'Sistema central de razonamiento, agentes autónomos y orquestación multi-modelo.', icon: 'psychology', color: 'secondary', nodes: ['LLM Routing', 'AI Memory', 'Agents System', 'Reasoning Engine'] },
+  { id: 'cybersec', title: 'Cybersecurity', desc: 'Arquitectura de defensa inteligente con detección de amenazas y Zero Trust integrado.', icon: 'security', color: 'primary', nodes: ['Threat Detection', 'Vulnerability Scanner', 'Zero Trust', 'Behavioral Analysis'] },
+  { id: 'dev-platform', title: 'Developer Platform', desc: 'Herramientas avanzadas para acelerar el desarrollo y la generación inteligente de código.', icon: 'terminal', color: 'secondary', nodes: ['Code Generation', 'AI Assistant', 'API Scaffolding', 'Testing Automation'] },
+  { id: 'automation', title: 'Automation', desc: 'Motor de automatización y workflows autónomos para operaciones críticas.', icon: 'settings', color: 'primary', nodes: ['Workflow Engine', 'Smart Triggers', 'Event Pipelines', 'AI Automation'] },
+  { id: 'distributed', title: 'Distributed Systems', desc: 'Infraestructura para escalabilidad global, resiliencia y computación en el borde.', icon: 'lan', color: 'primary', nodes: ['Event Bus', 'Messaging', 'Clustering', 'Edge Computing'] },
+  { id: 'observability', title: 'Observability', desc: 'Visibilidad total mediante monitoreo inteligente y análisis predictivo de fallos.', icon: 'monitoring', color: 'primary', nodes: ['Metrics', 'Distributed Tracing', 'Intelligent Logging', 'Performance'] },
+  { id: 'research', title: 'Research Lab', desc: 'Laboratorio experimental para la incubación de arquitecturas futuras y computación cuántica.', icon: 'science', color: 'secondary', nodes: ['Experimental AI', 'Autonomous Systems', 'Quantum Research', 'Neural Arch'] },
+  { id: 'sys-intel', title: 'System Intelligence', desc: 'Conciencia del ecosistema que comprende dependencias, relaciones y estados complejos.', icon: 'dna', color: 'primary', nodes: ['Knowledge Graph', 'Dependency Intel', 'System Memory', 'Context Engine'] },
+  { id: 'ops-autonomous', title: 'Autonomous Ops', desc: 'Operaciones auto-gestionadas con capacidad de auto-curación y escalado inteligente.', icon: 'smart_toy', color: 'primary', nodes: ['Self-healing', 'Incident Response', 'Predictive Maint', 'Smart Recovery'] },
+  { id: 'digital-twin', title: 'Digital Twin', desc: 'Simulación viva de infraestructura para experimentar sin riesgo en entornos de producción.', icon: 'dvr', color: 'primary', nodes: ['Simulations', 'Deployment Sandbox', 'Scenario Testing', 'Time Machine'] },
+  { id: 'api-integration', title: 'API & Integration', desc: 'Conectividad universal mediante gateways avanzados y conectores IA externos.', icon: 'api', color: 'primary', nodes: ['API Gateway', 'GraphQL Layer', 'SDKs', 'Webhooks'] },
+  { id: 'cloud-infra', title: 'Cloud & Infrastructure', desc: 'Capa nativa de nube para la gestión de contenedores y orquestación de recursos.', icon: 'cloud', color: 'primary', nodes: ['Kubernetes', 'Docker', 'IaC', 'Serverless Runtime'] },
+  { id: 'data-knowledge', title: 'Data & Knowledge', desc: 'Procesamiento y correlación de datos convertidos en conocimiento contextual.', icon: 'database', color: 'primary', nodes: ['Data Pipelines', 'Vector Databases', 'Semantic Search', 'Knowledge Index'] },
+  { id: 'data-science', title: 'Data Science & ML', desc: 'Inteligencia analítica para el entrenamiento de modelos y optimización continua.', icon: 'data_exploration', color: 'secondary', nodes: ['ML Engine', 'Predictive Analytics', 'Feature Eng', 'ML Ops'] }
 ];
 ---
-<section class="py-24 px-margin max-w-7xl mx-auto">
+<section class="py-24 px-margin max-w-7xl mx-auto" id="ecosystem">
     <div class="mb-16 text-center">
-        <h2 class="font-h2 text-h2 text-on-surface mb-4">Intelligent Ecosystem</h2>
-        <p class="font-body-md text-body-md text-white max-w-2xl mx-auto">Sixteen core domains synchronized to deliver autonomous operational capabilities.</p>
+        <h2 class="font-h2 text-h2 text-on-surface mb-4">Ecosistema Modular</h2>
+        <p class="font-body-md text-body-md text-white/70 max-w-2xl mx-auto">
+            Quince áreas especializadas diseñadas para funcionar de forma autónoma y cooperar como un sistema unificado.
+        </p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {domains.map((domain) => (
-            <div class="glass-panel rounded-xl p-6 relative group overflow-hidden transition-all duration-300">
-                <div class={`absolute top-0 right-0 w-24 h-24 bg-${domain.color}/5 rounded-bl-full -mr-4 -mt-4 transition-all duration-500 group-hover:bg-${domain.color}/10`}></div>
-                <div class="mb-4">
-                    <span class={`material-symbols-outlined text-${domain.color} text-3xl group-hover:drop-shadow-[0_0_8px_rgba(68,246,136,0.8)] transition-all`}>{domain.icon}</span>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {organizations.map((org) => (
+            <div class="glass-panel rounded-2xl p-6 relative group overflow-hidden border border-white/5 hover:border-emerald-500/30 transition-all duration-500 flex flex-col">
+                <div class={`absolute top-0 right-0 w-24 h-24 bg-${org.color}/5 rounded-bl-full -mr-4 -mt-4 transition-all duration-700 group-hover:scale-150 group-hover:opacity-20`}></div>
+                
+                <div class="relative z-10 flex flex-col h-full">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class={`p-2 rounded-lg bg-${org.color}/10 border border-${org.color}/20 flex-shrink-0`}>
+                            <span class={`material-symbols-outlined text-${org.color} text-2xl group-hover:drop-shadow-[0_0_8px_rgba(68,246,136,0.6)]`}>
+                                {org.icon}
+                            </span>
+                        </div>
+                        <h3 class="font-h3 text-lg text-on-surface leading-tight">{org.title}</h3>
+                    </div>
+                    
+                    <p class="font-body-md text-white/50 mb-6 text-sm flex-grow">
+                        {org.desc}
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-1.5 mt-auto">
+                        {org.nodes.map((node) => (
+                            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[9px] text-emerald-400/70 font-mono uppercase tracking-tighter">
+                                {node}
+                            </span>
+                        ))}
+                    </div>
                 </div>
-                <h3 class="font-h3 text-h3 text-on-surface mb-2">{domain.title}</h3>
-                <p class="font-body-md text-sm text-white">{domain.desc}</p>
             </div>
         ))}
     </div>

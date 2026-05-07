@@ -3,13 +3,13 @@ import ThreeDObject from '../visuals/ThreeDObject.astro';
 ---
 <header class="relative min-h-screen flex items-center overflow-hidden">
     <!-- Main Container -->
-    <div class="relative z-10 w-full max-w-[1440px] mx-auto px-8 md:px-16 flex flex-col lg:flex-row items-center justify-between gap-12">
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-margin flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         
-        <!-- Left Side: Content (Fixed width for stability) -->
-        <div class="w-full lg:w-[60%] flex flex-col items-start text-left pt-20 lg:pt-0">
+        <!-- Left Side: Content -->
+        <div class="w-full lg:w-1/2 flex flex-col items-start text-left pt-20 lg:pt-0">
             
             <!-- Badges -->
-            <div class="relative flex flex-col space-y-4 mb-12 pl-6 border-l border-white/5">
+            <div class="relative flex flex-col space-y-4 mb-6 pl-6 border-l border-white/5">
                 <!-- Top Bracket Decor -->
                 <div class="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-primary/40"></div>
                 
@@ -28,32 +28,28 @@ import ThreeDObject from '../visuals/ThreeDObject.astro';
 
             <!-- Main Heading -->
             <div class="mb-10 w-full relative">
-                <h1 class="font-h1 text-[clamp(2.5rem,8vw,6rem)] text-white leading-[0.85] tracking-[-0.04em] uppercase font-bold">
-                    BUILD WITHOUT <br/>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary/40">BOUNDARIES</span>
+                <h1 class="font-h1 text-[clamp(2.5rem,6vw,5rem)] text-white leading-[0.85] tracking-[-0.04em] uppercase font-bold mb-6">
+                    OMNICORE <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary/40">FRAMEWORK</span>
                 </h1>
-            </div>
-
-            <!-- Description -->
-            <div class="max-w-[540px] mb-12">
-                <p class="font-body-lg text-base md:text-lg text-white leading-relaxed font-light">
-                    The async infrastructure framework with a <span class="text-primary font-medium">neural-powered core</span> 
-                    that delivers <span class="text-secondary font-medium">10x faster</span> responses. Elegant architecture, 
-                    maximum productivity, zero compromise.
+                
+                <p class="font-body-lg text-base md:text-lg text-white/80 leading-relaxed font-light max-w-[540px]">
+                    <strong>Ecosistema Inteligente de Infraestructura Nativo para IA.</strong><br/>
+                    La Capa Operativa para Sistemas Inteligentes capaz de comprender, automatizar, proteger y evolucionar infraestructuras completas de forma autónoma.
                 </p>
             </div>
 
             <!-- Action Buttons -->
-            <div class="flex flex-wrap gap-6 mb-16">
-                <button class="bg-[#002B16] border border-primary/40 text-primary px-10 py-5 rounded-sm font-mono text-[11px] tracking-[0.2em] uppercase flex items-center group transition-all hover:bg-primary hover:text-black hover:shadow-[0_0_40px_rgba(68,246,136,0.2)] active:scale-95">
-                    <span class="material-symbols-outlined mr-3 text-base group-hover:rotate-45 transition-transform">bolt</span>
-                    INITIALIZE MISSION
+            <div class="flex flex-wrap gap-6 mb-8">
+                <a href="/docs" class="bg-[#002B16] border border-primary/40 text-primary px-10 py-5 rounded-sm font-mono text-[11px] tracking-[0.2em] uppercase flex items-center group transition-all hover:bg-primary hover:text-black hover:shadow-[0_0_40px_rgba(68,246,136,0.2)] active:scale-95">
+                    <span class="material-symbols-outlined mr-3 text-base group-hover:rotate-12 transition-transform">rocket_launch</span>
+                    GET STARTED
                     <span class="material-symbols-outlined ml-3 text-base">arrow_forward</span>
-                </button>
-                <button class="border border-white/10 text-white/50 px-10 py-5 rounded-sm font-mono text-[11px] tracking-[0.2em] uppercase flex items-center hover:bg-white/5 transition-all active:scale-95">
+                </a>
+                <a href="https://github.com/omnicore-framework" target="_blank" class="border border-white/10 text-white/50 px-10 py-5 rounded-sm font-mono text-[11px] tracking-[0.2em] uppercase flex items-center hover:bg-white/5 transition-all active:scale-95">
                     <span class="material-symbols-outlined mr-3 text-base">code</span>
                     SOURCE CODE
-                </button>
+                </a>
             </div>
 
             <!-- CLI Block -->
@@ -64,7 +60,7 @@ import ThreeDObject from '../visuals/ThreeDObject.astro';
                 <div class="bg-black/80 border border-white/10 rounded-sm px-6 py-4 flex items-center justify-between font-mono text-sm shadow-2xl backdrop-blur-md">
                     <div class="flex items-center space-x-4">
                         <span class="text-primary/40 uppercase text-[10px] border-r border-white/10 pr-4 tracking-tighter">CMDR&gt;</span>
-                        <span class="text-white/90">npm i @omnicore/framework</span>
+                        <span class="text-white/90">omnicore install --core</span>
                     </div>
                     <button class="material-symbols-outlined text-white/30 hover:text-primary cursor-pointer text-base transition-colors">content_copy</button>
                 </div>
@@ -74,7 +70,7 @@ import ThreeDObject from '../visuals/ThreeDObject.astro';
         </div>
 
         <!-- Right Side: 3D Object (Independent container) -->
-        <div class="w-full lg:w-[40%] h-[400px] lg:h-[700px] flex items-center justify-center relative">
+        <div class="w-full lg:w-1/2 h-[400px] lg:h-[700px] flex items-center justify-center relative">
             <!-- Glow background -->
             <div class="absolute inset-0 bg-primary/5 rounded-full blur-[140px] pointer-events-none"></div>
             <div class="w-full h-full relative z-20">
