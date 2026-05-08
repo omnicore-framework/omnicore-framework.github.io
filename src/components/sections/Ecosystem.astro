@@ -1,57 +1,219 @@
 ---
 const organizations = [
-  { id: 'core', title: 'Core Framework', desc: 'Infraestructura central que conecta todo el ecosistema y gestiona el ciclo de vida de los servicios.', icon: 'hub', color: 'primary', nodes: ['Runtime Engine', 'Event System', 'Plugin System', 'Internal APIs'] },
-  { id: 'ai-engine', title: 'AI Engine', desc: 'Sistema central de razonamiento, agentes autónomos y orquestación multi-modelo.', icon: 'psychology', color: 'secondary', nodes: ['LLM Routing', 'AI Memory', 'Agents System', 'Reasoning Engine'] },
-  { id: 'cybersec', title: 'Cybersecurity', desc: 'Arquitectura de defensa inteligente con detección de amenazas y Zero Trust integrado.', icon: 'security', color: 'primary', nodes: ['Threat Detection', 'Vulnerability Scanner', 'Zero Trust', 'Behavioral Analysis'] },
-  { id: 'dev-platform', title: 'Developer Platform', desc: 'Herramientas avanzadas para acelerar el desarrollo y la generación inteligente de código.', icon: 'terminal', color: 'secondary', nodes: ['Code Generation', 'AI Assistant', 'API Scaffolding', 'Testing Automation'] },
-  { id: 'automation', title: 'Automation', desc: 'Motor de automatización y workflows autónomos para operaciones críticas.', icon: 'settings', color: 'primary', nodes: ['Workflow Engine', 'Smart Triggers', 'Event Pipelines', 'AI Automation'] },
-  { id: 'distributed', title: 'Distributed Systems', desc: 'Infraestructura para escalabilidad global, resiliencia y computación en el borde.', icon: 'lan', color: 'primary', nodes: ['Event Bus', 'Messaging', 'Clustering', 'Edge Computing'] },
-  { id: 'observability', title: 'Observability', desc: 'Visibilidad total mediante monitoreo inteligente y análisis predictivo de fallos.', icon: 'monitoring', color: 'primary', nodes: ['Metrics', 'Distributed Tracing', 'Intelligent Logging', 'Performance'] },
-  { id: 'research', title: 'Research Lab', desc: 'Laboratorio experimental para la incubación de arquitecturas futuras y computación cuántica.', icon: 'science', color: 'secondary', nodes: ['Experimental AI', 'Autonomous Systems', 'Quantum Research', 'Neural Arch'] },
-  { id: 'sys-intel', title: 'System Intelligence', desc: 'Conciencia del ecosistema que comprende dependencias, relaciones y estados complejos.', icon: 'dna', color: 'primary', nodes: ['Knowledge Graph', 'Dependency Intel', 'System Memory', 'Context Engine'] },
-  { id: 'ops-autonomous', title: 'Autonomous Ops', desc: 'Operaciones auto-gestionadas con capacidad de auto-curación y escalado inteligente.', icon: 'smart_toy', color: 'primary', nodes: ['Self-healing', 'Incident Response', 'Predictive Maint', 'Smart Recovery'] },
-  { id: 'digital-twin', title: 'Digital Twin', desc: 'Simulación viva de infraestructura para experimentar sin riesgo en entornos de producción.', icon: 'dvr', color: 'primary', nodes: ['Simulations', 'Deployment Sandbox', 'Scenario Testing', 'Time Machine'] },
-  { id: 'api-integration', title: 'API & Integration', desc: 'Conectividad universal mediante gateways avanzados y conectores IA externos.', icon: 'api', color: 'primary', nodes: ['API Gateway', 'GraphQL Layer', 'SDKs', 'Webhooks'] },
-  { id: 'cloud-infra', title: 'Cloud & Infrastructure', desc: 'Capa nativa de nube para la gestión de contenedores y orquestación de recursos.', icon: 'cloud', color: 'primary', nodes: ['Kubernetes', 'Docker', 'IaC', 'Serverless Runtime'] },
-  { id: 'data-knowledge', title: 'Data & Knowledge', desc: 'Procesamiento y correlación de datos convertidos en conocimiento contextual.', icon: 'database', color: 'primary', nodes: ['Data Pipelines', 'Vector Databases', 'Semantic Search', 'Knowledge Index'] },
-  { id: 'data-science', title: 'Data Science & ML', desc: 'Inteligencia analítica para el entrenamiento de modelos y optimización continua.', icon: 'data_exploration', color: 'secondary', nodes: ['ML Engine', 'Predictive Analytics', 'Feature Eng', 'ML Ops'] }
+  {
+    id: 'core',
+    title: 'Core Framework',
+    desc: 'Infraestructura central que conecta todo el ecosistema y gestiona el ciclo de vida de los servicios.',
+    icon: 'hub',
+    color: 'primary',
+    nodes: ['Runtime Engine', 'Event System', 'Plugin System', 'Internal APIs'],
+  },
+  {
+    id: 'ai-engine',
+    title: 'AI Engine',
+    desc: 'Sistema central de razonamiento, agentes autónomos y orquestación multi-modelo.',
+    icon: 'psychology',
+    color: 'secondary',
+    nodes: ['LLM Routing', 'AI Memory', 'Agents System', 'Reasoning Engine'],
+  },
+  {
+    id: 'cybersec',
+    title: 'Cybersecurity',
+    desc: 'Arquitectura de defensa inteligente con detección de amenazas y Zero Trust integrado.',
+    icon: 'security',
+    color: 'primary',
+    nodes: [
+      'Threat Detection',
+      'Vulnerability Scanner',
+      'Zero Trust',
+      'Behavioral Analysis',
+    ],
+  },
+  {
+    id: 'dev-platform',
+    title: 'Developer Platform',
+    desc: 'Herramientas avanzadas para acelerar el desarrollo y la generación inteligente de código.',
+    icon: 'terminal',
+    color: 'secondary',
+    nodes: [
+      'Code Generation',
+      'AI Assistant',
+      'API Scaffolding',
+      'Testing Automation',
+    ],
+  },
+  {
+    id: 'automation',
+    title: 'Automation',
+    desc: 'Motor de automatización y workflows autónomos para operaciones críticas.',
+    icon: 'settings',
+    color: 'primary',
+    nodes: [
+      'Workflow Engine',
+      'Smart Triggers',
+      'Event Pipelines',
+      'AI Automation',
+    ],
+  },
+  {
+    id: 'distributed',
+    title: 'Distributed Systems',
+    desc: 'Infraestructura para escalabilidad global, resiliencia y computación en el borde.',
+    icon: 'lan',
+    color: 'primary',
+    nodes: ['Event Bus', 'Messaging', 'Clustering', 'Edge Computing'],
+  },
+  {
+    id: 'observability',
+    title: 'Observability',
+    desc: 'Visibilidad total mediante monitoreo inteligente y análisis predictivo de fallos.',
+    icon: 'monitoring',
+    color: 'primary',
+    nodes: [
+      'Metrics',
+      'Distributed Tracing',
+      'Intelligent Logging',
+      'Performance',
+    ],
+  },
+  {
+    id: 'research',
+    title: 'Research Lab',
+    desc: 'Laboratorio experimental para la incubación de arquitecturas futuras y computación cuántica.',
+    icon: 'science',
+    color: 'secondary',
+    nodes: [
+      'Experimental AI',
+      'Autonomous Systems',
+      'Quantum Research',
+      'Neural Arch',
+    ],
+  },
+  {
+    id: 'sys-intel',
+    title: 'System Intelligence',
+    desc: 'Conciencia del ecosistema que comprende dependencias, relaciones y estados complejos.',
+    icon: 'dna',
+    color: 'primary',
+    nodes: [
+      'Knowledge Graph',
+      'Dependency Intel',
+      'System Memory',
+      'Context Engine',
+    ],
+  },
+  {
+    id: 'ops-autonomous',
+    title: 'Autonomous Ops',
+    desc: 'Operaciones auto-gestionadas con capacidad de auto-curación y escalado inteligente.',
+    icon: 'smart_toy',
+    color: 'primary',
+    nodes: [
+      'Self-healing',
+      'Incident Response',
+      'Predictive Maint',
+      'Smart Recovery',
+    ],
+  },
+  {
+    id: 'digital-twin',
+    title: 'Digital Twin',
+    desc: 'Simulación viva de infraestructura para experimentar sin riesgo en entornos de producción.',
+    icon: 'dvr',
+    color: 'primary',
+    nodes: [
+      'Simulations',
+      'Deployment Sandbox',
+      'Scenario Testing',
+      'Time Machine',
+    ],
+  },
+  {
+    id: 'api-integration',
+    title: 'API & Integration',
+    desc: 'Conectividad universal mediante gateways avanzados y conectores IA externos.',
+    icon: 'api',
+    color: 'primary',
+    nodes: ['API Gateway', 'GraphQL Layer', 'SDKs', 'Webhooks'],
+  },
+  {
+    id: 'cloud-infra',
+    title: 'Cloud & Infrastructure',
+    desc: 'Capa nativa de nube para la gestión de contenedores y orquestación de recursos.',
+    icon: 'cloud',
+    color: 'primary',
+    nodes: ['Kubernetes', 'Docker', 'IaC', 'Serverless Runtime'],
+  },
+  {
+    id: 'data-knowledge',
+    title: 'Data & Knowledge',
+    desc: 'Procesamiento y correlación de datos convertidos en conocimiento contextual.',
+    icon: 'database',
+    color: 'primary',
+    nodes: [
+      'Data Pipelines',
+      'Vector Databases',
+      'Semantic Search',
+      'Knowledge Index',
+    ],
+  },
+  {
+    id: 'data-science',
+    title: 'Data Science & ML',
+    desc: 'Inteligencia analítica para el entrenamiento de modelos y optimización continua.',
+    icon: 'data_exploration',
+    color: 'secondary',
+    nodes: ['ML Engine', 'Predictive Analytics', 'Feature Eng', 'ML Ops'],
+  },
 ];
 ---
-<section class="py-24 px-margin max-w-7xl mx-auto" id="ecosystem">
-    <div class="mb-16 text-center">
-        <h2 class="font-h2 text-h2 text-on-surface mb-4">Ecosistema Modular</h2>
-        <p class="font-body-md text-body-md text-white/70 max-w-2xl mx-auto">
-            Quince áreas especializadas diseñadas para funcionar de forma autónoma y cooperar como un sistema unificado.
-        </p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {organizations.map((org) => (
-            <div class="glass-panel rounded-2xl p-6 relative group overflow-hidden border border-white/5 hover:border-emerald-500/30 transition-all duration-500 flex flex-col">
-                <div class={`absolute top-0 right-0 w-24 h-24 bg-${org.color}/5 rounded-bl-full -mr-4 -mt-4 transition-all duration-700 group-hover:scale-150 group-hover:opacity-20`}></div>
-                
-                <div class="relative z-10 flex flex-col h-full">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class={`p-2 rounded-lg bg-${org.color}/10 border border-${org.color}/20 flex-shrink-0`}>
-                            <span class={`material-symbols-outlined text-${org.color} text-2xl group-hover:drop-shadow-[0_0_8px_rgba(68,246,136,0.6)]`}>
-                                {org.icon}
-                            </span>
-                        </div>
-                        <h3 class="font-h3 text-lg text-on-surface leading-tight">{org.title}</h3>
-                    </div>
-                    
-                    <p class="font-body-md text-white/50 mb-6 text-sm flex-grow">
-                        {org.desc}
-                    </p>
-                    
-                    <div class="flex flex-wrap gap-1.5 mt-auto">
-                        {org.nodes.map((node) => (
-                            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[9px] text-emerald-400/70 font-mono uppercase tracking-tighter">
-                                {node}
-                            </span>
-                        ))}
-                    </div>
-                </div>
+
+<section class="px-margin mx-auto max-w-7xl py-24" id="ecosystem">
+  <div class="mb-16 text-center">
+    <h2 class="font-h2 text-h2 text-on-surface mb-4">Ecosistema Modular</h2>
+    <p class="font-body-md text-body-md mx-auto max-w-2xl text-white/70">
+      Quince áreas especializadas diseñadas para funcionar de forma autónoma y
+      cooperar como un sistema unificado.
+    </p>
+  </div>
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {
+      organizations.map((org) => (
+        <div class="glass-panel group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 p-6 transition-all duration-500 hover:border-emerald-500/30">
+          <div
+            class={`absolute top-0 right-0 h-24 w-24 bg-${org.color}/5 -mt-4 -mr-4 rounded-bl-full transition-all duration-700 group-hover:scale-150 group-hover:opacity-20`}
+          />
+
+          <div class="relative z-10 flex h-full flex-col">
+            <div class="mb-4 flex items-center gap-3">
+              <div
+                class={`rounded-lg p-2 bg-${org.color}/10 border border-${org.color}/20 flex-shrink-0`}
+              >
+                <span
+                  class={`material-symbols-outlined text-${org.color} text-2xl group-hover:drop-shadow-[0_0_8px_rgba(68,246,136,0.6)]`}
+                >
+                  {org.icon}
+                </span>
+              </div>
+              <h3 class="font-h3 text-on-surface text-lg leading-tight">
+                {org.title}
+              </h3>
             </div>
-        ))}
-    </div>
+
+            <p class="font-body-md mb-6 flex-grow text-sm text-white/50">
+              {org.desc}
+            </p>
+
+            <div class="mt-auto flex flex-wrap gap-1.5">
+              {org.nodes.map((node) => (
+                <span class="rounded border border-white/10 bg-white/5 px-2 py-0.5 font-mono text-[9px] tracking-tighter text-emerald-400/70 uppercase">
+                  {node}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
 </section>

@@ -11,5 +11,5 @@ const ecosystemCollection = defineCollection({
 });
 
 export const collections = {
-  'ecosystem': ecosystemCollection,
+  ecosystem: ecosystemCollection,
 };

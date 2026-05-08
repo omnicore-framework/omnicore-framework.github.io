@@ -1,117 +1,128 @@
 ---
+
 ---
-<div id="three-container" class="w-full h-[400px] md:h-[600px] relative pointer-events-none"></div>
+
+<div
+  id="three-container"
+  class="pointer-events-none relative h-[400px] w-full md:h-[600px]"
+>
+</div>
 
 <script>
-    import * as THREE from 'three';
+  import * as THREE from 'three';
 
-    const container = document.getElementById('three-container');
-    if (container) {
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        
-        renderer.setSize(container.clientWidth, container.clientHeight);
-        renderer.setPixelRatio(window.devicePixelRatio);
-        container.appendChild(renderer.domElement);
+  const container = document.getElementById('three-container');
+  if (container) {
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      container.clientWidth / container.clientHeight,
+      0.1,
+      1000,
+    );
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 
-        // Lights for depth
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-        scene.add(ambientLight);
-        const pointLight = new THREE.PointLight(0x44f688, 2);
-        pointLight.position.set(5, 5, 5);
-        scene.add(pointLight);
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    container.appendChild(renderer.domElement);
 
-        // Create a cool "Neural Core" (Outer Shell - White)
-        const geometry = new THREE.IcosahedronGeometry(2.2, 2);
-        const wireframeMaterial = new THREE.MeshBasicMaterial({ 
-            color: 0xffffff, // White
-            wireframe: true,
-            transparent: true,
-            opacity: 0.1
-        });
-        const sphere = new THREE.Mesh(geometry, wireframeMaterial);
-        scene.add(sphere);
+    // Lights for depth
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+    const pointLight = new THREE.PointLight(0x44f688, 2);
+    pointLight.position.set(5, 5, 5);
+    scene.add(pointLight);
 
-        // Phantom Shell (Dark/Black lines for depth)
-        const phantomMaterial = new THREE.MeshBasicMaterial({ 
-            color: 0x000000, // Black
-            wireframe: true,
-            transparent: true,
-            opacity: 0.4,
-            side: THREE.BackSide
-        });
-        const phantomSphere = new THREE.Mesh(geometry, phantomMaterial);
-        phantomSphere.scale.setScalar(1.01);
-        scene.add(phantomSphere);
+    // Create a cool "Neural Core" (Outer Shell - White)
+    const geometry = new THREE.IcosahedronGeometry(2.2, 2);
+    const wireframeMaterial = new THREE.MeshBasicMaterial({
+      color: 0xffffff, // White
+      wireframe: true,
+      transparent: true,
+      opacity: 0.1,
+    });
+    const sphere = new THREE.Mesh(geometry, wireframeMaterial);
+    scene.add(sphere);
 
-        // Add points at vertices (Primary Green)
-        const pointsGeometry = new THREE.IcosahedronGeometry(2.2, 2);
-        const pointsMaterial = new THREE.PointsMaterial({
-            color: 0x44f688, // Primary Green
-            size: 0.06,
-            transparent: true,
-            opacity: 0.8
-        });
-        const points = new THREE.Points(pointsGeometry, pointsMaterial);
-        scene.add(points);
+    // Phantom Shell (Dark/Black lines for depth)
+    const phantomMaterial = new THREE.MeshBasicMaterial({
+      color: 0x000000, // Black
+      wireframe: true,
+      transparent: true,
+      opacity: 0.4,
+      side: THREE.BackSide,
+    });
+    const phantomSphere = new THREE.Mesh(geometry, phantomMaterial);
+    phantomSphere.scale.setScalar(1.01);
+    scene.add(phantomSphere);
 
-        // Add more points (White)
-        const whitePointsMaterial = new THREE.PointsMaterial({
-            color: 0xffffff, // White
-            size: 0.04,
-            transparent: true,
-            opacity: 0.5
-        });
-        const whitePoints = new THREE.Points(pointsGeometry, whitePointsMaterial);
-        whitePoints.rotation.y = Math.PI / 4;
-        scene.add(whitePoints);
+    // Add points at vertices (Primary Green)
+    const pointsGeometry = new THREE.IcosahedronGeometry(2.2, 2);
+    const pointsMaterial = new THREE.PointsMaterial({
+      color: 0x44f688, // Primary Green
+      size: 0.06,
+      transparent: true,
+      opacity: 0.8,
+    });
+    const points = new THREE.Points(pointsGeometry, pointsMaterial);
+    scene.add(points);
 
-        // Add inner core (White/Bright)
-        const innerGeometry = new THREE.IcosahedronGeometry(0.8, 1);
-        const innerMaterial = new THREE.MeshStandardMaterial({ 
-            color: 0xffffff, // White
-            emissive: 0x44f688,
-            emissiveIntensity: 0.5,
-            wireframe: true,
-            transparent: true,
-            opacity: 0.8
-        });
-        const innerCore = new THREE.Mesh(innerGeometry, innerMaterial);
-        scene.add(innerCore);
+    // Add more points (White)
+    const whitePointsMaterial = new THREE.PointsMaterial({
+      color: 0xffffff, // White
+      size: 0.04,
+      transparent: true,
+      opacity: 0.5,
+    });
+    const whitePoints = new THREE.Points(pointsGeometry, whitePointsMaterial);
+    whitePoints.rotation.y = Math.PI / 4;
+    scene.add(whitePoints);
 
-        camera.position.z = 4;
+    // Add inner core (White/Bright)
+    const innerGeometry = new THREE.IcosahedronGeometry(0.8, 1);
+    const innerMaterial = new THREE.MeshStandardMaterial({
+      color: 0xffffff, // White
+      emissive: 0x44f688,
+      emissiveIntensity: 0.5,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.8,
+    });
+    const innerCore = new THREE.Mesh(innerGeometry, innerMaterial);
+    scene.add(innerCore);
 
-        function animate() {
-            requestAnimationFrame(animate);
-            
-            sphere.rotation.x += 0.002;
-            sphere.rotation.y += 0.003;
+    camera.position.z = 4;
 
-            phantomSphere.rotation.x += 0.002;
-            phantomSphere.rotation.y += 0.003;
-            
-            points.rotation.x += 0.002;
-            points.rotation.y += 0.003;
+    function animate() {
+      requestAnimationFrame(animate);
 
-            whitePoints.rotation.x += 0.001;
-            whitePoints.rotation.y += 0.002;
+      sphere.rotation.x += 0.002;
+      sphere.rotation.y += 0.003;
 
-            innerCore.rotation.x -= 0.005;
-            innerCore.rotation.y -= 0.005;
-            
-            const time = Date.now() * 0.001;
-            innerCore.scale.setScalar(1 + Math.sin(time * 2) * 0.1);
+      phantomSphere.rotation.x += 0.002;
+      phantomSphere.rotation.y += 0.003;
 
-            renderer.render(scene, camera);
-        }
+      points.rotation.x += 0.002;
+      points.rotation.y += 0.003;
 
-        window.addEventListener('resize', () => {
-            camera.aspect = container.clientWidth / container.clientHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(container.clientWidth, container.clientHeight);
-        });
+      whitePoints.rotation.x += 0.001;
+      whitePoints.rotation.y += 0.002;
 
-        animate();
+      innerCore.rotation.x -= 0.005;
+      innerCore.rotation.y -= 0.005;
+
+      const time = Date.now() * 0.001;
+      innerCore.scale.setScalar(1 + Math.sin(time * 2) * 0.1);
+
+      renderer.render(scene, camera);
     }
+
+    window.addEventListener('resize', () => {
+      camera.aspect = container.clientWidth / container.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(container.clientWidth, container.clientHeight);
+    });
+
+    animate();
+  }
 </script>
